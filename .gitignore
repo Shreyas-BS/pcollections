@@ -10,3 +10,5 @@ target/
 /.project
 /.settings/
 /bin/
+path/
+logs2/
