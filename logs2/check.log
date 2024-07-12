@@ -1,0 +1,210 @@
+
+Running '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/bin/javac' '-processor' 'pico.typecheck.PICOChecker' '-Astubs=/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/src/main/java/pico/typecheck/jdk.astub:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/cf.astub' '-Aajava=None' '-J-Xbootclasspath/p:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/dist/javac.jar' '-classpath' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/libs/immutability.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/classes/java/main:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/libs:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/dataflow/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/javacutil/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/stubparser/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/build:/bin:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/tests/junit-4.12.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/tests/hamcrest-core-1.3.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/checker-framework-inference.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/org.ow2.sat4j.core-2.3.4.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/commons-logging-1.2.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/log4j-1.2.16.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/jsr308-langtools/build/classes::' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableList.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AmortizedPQueue.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePBag.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PVector.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PQueue.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSequence.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PBag.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableQueue.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSortedSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/IntTreePMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/OrderedPMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableCollection.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/OrderedPSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/IntTree.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/ConsPStack.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSortedMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableSequentialList.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PStack.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashPMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableMap.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PCollection.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePVector.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSet.java' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/Empty.java'
+
+warning: InitializationFieldAccessSubchecker did not find annotation file or directory None on classpath or within current directory
+warning: PICONoInitSubchecker did not find annotation file or directory None on classpath or within current directory
+warning: PICOChecker did not find annotation file or directory None on classpath or within current directory
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:60: error: [assignment.type.incompatible] incompatible types in assignment.
+    final Iterator<Entry<E, Integer>> i = map.entrySet().iterator();
+                                                                 ^
+  found   : @Readonly Iterator<@Mutable Entry<E[ extends @Immutable Object super @Immutable Void], @Immutable Integer>>
+  required: @Readonly Iterator<@Mutable Entry<E[ extends @Immutable Object super @Bottom Void], @Immutable Integer>>
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:62: error: [initialization.field.uninitialized] the default constructor does not initialize field e
+      private E e;
+                ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:104: warning: [object.identity.method.invocation.invalid] Cannot invoke non-object identity method minusAll(@qual.Readonly java.util.Collection<?>) from object identity context!
+      MapPBag<@Immutable Object> empty = (@Mutable MapPBag< @Immutable Object>) this.minusAll(this);
+                                                                                             ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:105: warning: [object.identity.method.invocation.invalid] Cannot invoke non-object identity method plusAll(java.util.Collection<? extends E>) from object identity context!
+      that = empty.plusAll((PBag<? extends @Immutable Object>) that);
+                          ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:122: warning: [cast.unsafe] cast from "@Mutable Object" to "E[ extends @Immutable Object super @Bottom Void]" cannot be statically verified
+    return new MapPBag<E>(map.plus((E) e, n - 1), size - 1);
+                                   ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java:142: warning: [cast.unsafe] cast from "@Readonly Object" to "E[ extends @Immutable Object super @Bottom Void]" cannot be statically verified
+    return map.get((E) o);
+                   ^
+error: AnnotatedTypeFactory.getAnnotatedType: null tree
+  ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0-eisop3, branch aosen-master, 2024-06-25, commit 307ee75. 
+  Checker: class pico.typecheck.PICONoInitSubchecker
+  Visitor: class pico.typecheck.PICONoInitVisitor
+  Compilation unit: /Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableCollection.java
+  Last visited tree at line 17 column 1:
+  public abstract class AbstractUnmodifiableCollection<E> extends AbstractCollection<E> {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:22)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1473)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:3506)
+  	at pico.typecheck.PICONoInitAnnotatedTypeFactory.getTypeOfExtendsImplements(PICONoInitAnnotatedTypeFactory.java:262)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:628)
+  	at pico.typecheck.PICONoInitVisitor.processClassTree(PICONoInitVisitor.java:526)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:601)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:195)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:89)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1136)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:556)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:549)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:193)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1354)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+error: AnnotatedTypeFactory.getAnnotatedType: null tree
+  ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0-eisop3, branch aosen-master, 2024-06-25, commit 307ee75. 
+  Checker: class pico.typecheck.PICONoInitSubchecker
+  Visitor: class pico.typecheck.PICONoInitVisitor
+  Compilation unit: /Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PCollection.java
+  Last visited tree at line 19 column 1:
+  public interface PCollection<E> extends Collection<E> {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:22)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1473)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:3506)
+  	at pico.typecheck.PICONoInitAnnotatedTypeFactory.getTypeOfExtendsImplements(PICONoInitAnnotatedTypeFactory.java:262)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:635)
+  	at pico.typecheck.PICONoInitVisitor.processClassTree(PICONoInitVisitor.java:526)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:601)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:195)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:89)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1136)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:556)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:549)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:193)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1354)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+error: AnnotatedTypeFactory.getAnnotatedType: null tree
+  ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0-eisop3, branch aosen-master, 2024-06-25, commit 307ee75. 
+  Checker: class pico.typecheck.PICONoInitSubchecker
+  Visitor: class pico.typecheck.PICONoInitVisitor
+  Compilation unit: /Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSequence.java
+  Last visited tree at line 20 column 1:
+  public interface PSequence<E> extends PCollection<E>, List<E> {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:22)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1473)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:3506)
+  	at pico.typecheck.PICONoInitAnnotatedTypeFactory.getTypeOfExtendsImplements(PICONoInitAnnotatedTypeFactory.java:262)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:635)
+  	at pico.typecheck.PICONoInitVisitor.processClassTree(PICONoInitVisitor.java:526)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:601)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:195)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:89)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1136)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:556)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:549)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:193)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1354)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePMap.java:26: error: [assignment.type.incompatible] incompatible types in assignment.
+      HashPMap.empty(IntTreePMap.<PSequence<Entry<Object, Object>>>empty());
+                    ^
+  found   : @Mutable HashPMap<@Mutable Object, @Mutable Object>
+  required: @Mutable HashPMap<@Immutable Object, @Mutable Object>
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePMap.java:26: error: [type.argument.type.incompatible] incompatible type argument for type parameter K extends @Immutable Object of HashPMap.empty.
+      HashPMap.empty(IntTreePMap.<PSequence<Entry<Object, Object>>>empty());
+                    ^
+  found   : @Mutable Object
+  required: @Immutable Object
+error: AnnotatedTypeFactory.getAnnotatedType: null tree
+  ; The Checker Framework crashed.  Please report the crash.  Version: Checker Framework 3.42.0-eisop3, branch aosen-master, 2024-06-25, commit 307ee75. 
+  Checker: class pico.typecheck.PICONoInitSubchecker
+  Visitor: class pico.typecheck.PICONoInitVisitor
+  Compilation unit: /Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSet.java
+  Last visited tree at line 20 column 1:
+  public interface PSet<E> extends PCollection<E>, Set<E> {
+  Exception: java.lang.Throwable; java.lang.Throwable
+  	at org.checkerframework.javacutil.BugInCF.<init>(BugInCF.java:22)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:1473)
+  	at org.checkerframework.framework.type.AnnotatedTypeFactory.getAnnotatedType(AnnotatedTypeFactory.java:3506)
+  	at pico.typecheck.PICONoInitAnnotatedTypeFactory.getTypeOfExtendsImplements(PICONoInitAnnotatedTypeFactory.java:262)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.processClassTree(BaseTypeVisitor.java:635)
+  	at pico.typecheck.PICONoInitVisitor.processClassTree(PICONoInitVisitor.java:526)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:601)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:195)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:89)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1136)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:556)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:549)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:193)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1397)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1354)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:252: warning: [object.identity.field.access.invalid] Object identity context cannot reference non abstract state field key!
+        && Objects.equals(this.key, that.getKey())
+                              ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:252: warning: [object.identity.method.invocation.invalid] Cannot invoke non-object identity method getKey() from object identity context!
+        && Objects.equals(this.key, that.getKey())
+                                               ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:253: warning: [object.identity.field.access.invalid] Object identity context cannot reference non abstract state field value!
+        && Objects.equals(this.value, that.getValue());
+                              ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:253: warning: [object.identity.method.invocation.invalid] Cannot invoke non-object identity method getValue() from object identity context!
+        && Objects.equals(this.value, that.getValue());
+                                                   ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:302: warning: [object.identity.field.access.invalid] Object identity context cannot reference non abstract state field key!
+    return Objects.hashCode(this.key) ^ Objects.hashCode(this.value);
+                                ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java:302: warning: [object.identity.field.access.invalid] Object identity context cannot reference non abstract state field value!
+    return Objects.hashCode(this.key) ^ Objects.hashCode(this.value);
+                                                             ^
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePSet.java:175: error: [argument.type.incompatible] incompatible argument for parameter list of TreePSet.plusAll.
+    return TreePSet.<E>empty(comparator).plusAll(Arrays.asList(elements));
+                                                              ^
+  found   : @Immutable List<E extends @Readonly Object>
+  required: @Mutable Collection<? extends E extends @Readonly Object>
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPSet.java:69: error: [override.return.invalid] Incompatible return type.
+  public @Readonly Iterator<E> iterator() {
+                           ^
+  found   : @Readonly Iterator<E extends @Immutable Object>
+  required: @Mutable Iterator<E extends @Immutable Object>
+  Consequence: method in @Mutable MapPSet<E extends @Immutable Object>
+    @Readonly Iterator<E extends @Immutable Object> iterator(@Mutable MapPSet<E extends @Immutable Object> this)
+  cannot override method in @Mutable Collection<E extends @Immutable Object>
+    @Mutable Iterator<E extends @Immutable Object> iterator(@Mutable Collection<E extends @Immutable Object> this)
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPSet.java:70: error: [return.type.incompatible] incompatible types in return.
+    return map.keySet().iterator();
+                                ^
+  type of expression: @Readonly Iterator<E[ extends @Immutable Object super @Immutable Void]>
+  method return type: @Readonly Iterator<E[ extends @Immutable Object super @Bottom Void]>
+11 errors
+13 warnings
+
+Running '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/bin/javac' '-processor' 'pico.typecheck.PICOChecker' '-Astubs=/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/src/main/java/pico/typecheck/jdk.astub:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/cf.astub' '-Aajava=None' '-J-Xbootclasspath/p:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/dist/javac.jar' '-classpath' ':/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/classes/java/main:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/libs:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/dataflow/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/javacutil/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/stubparser/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/build:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/checker/build:/bin:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/tests/junit-4.12.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework/framework/tests/hamcrest-core-1.3.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/checker-framework-inference.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/org.ow2.sat4j.core-2.3.4.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/commons-logging-1.2.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/checker-framework-inference/dist/log4j-1.2.16.jar:/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/jsr308-langtools/build/classes::' '/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/module-info.java'
+
+/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/module-info.java:2: error: module not found: immutability
+  requires immutability;
+           ^
+1 error

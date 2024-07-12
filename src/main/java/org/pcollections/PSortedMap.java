@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
@@ -75,7 +78,7 @@ import java.util.NoSuchElementException;
  * @see org.pcollections.PSortedSet
  * @see org.pcollections.TreePMap
  */
-public interface PSortedMap<K, V> extends PMap<K, V>, NavigableMap<K, V> {
+public interface PSortedMap<K extends @Immutable Object, V> extends PMap<K, V>, NavigableMap<K, V> {
   // methods inherited from PMap, overridden to return specifically PSortedMap:
 
   @Override
@@ -85,10 +88,10 @@ public interface PSortedMap<K, V> extends PMap<K, V>, NavigableMap<K, V> {
   public PSortedMap<K, V> plusAll(Map<? extends K, ? extends V> map);
 
   @Override
-  public PSortedMap<K, V> minus(Object key);
+  public PSortedMap<K, V> minus(@Readonly Object key);
 
   @Override
-  public PSortedMap<K, V> minusAll(Collection<?> keys);
+  public PSortedMap<K, V> minusAll(@Readonly Collection<?> keys);
 
   // methods inherited from NavigableMap, overridden to return specifically PSortedMap or
   // PSortedSet:

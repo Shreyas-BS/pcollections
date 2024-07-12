@@ -1,0 +1,55 @@
+#!/bin/bash
+./gradlew clean
+rm -rf logs2
+dir="src/main/java"
+find "$dir" -type f -name "*.class" -exec rm -f {} \;
+
+WORKING_DIR=$(pwd)
+
+JSR308=$(cd $(dirname "$0")/.. && pwd)
+
+DLJC="$JSR308"/do-like-javac
+export AFU="$JSR308"/annotation-tools/annotation-file-utilities
+export PATH="$PATH":"$AFU"/scripts
+export CFI="$JSR308"/checker-framework-inference
+export CHECKERFRAMEWORK="$JSR308"/checker-framework
+export CLASSPATH=:$JSR308/immutability/build/classes/java/main:$JSR308/immutability/build/libs:$CHECKERFRAMEWORK/dataflow/build:$CHECKERFRAMEWORK/javacutil/build:$CHECKERFRAMEWORK/stubparser/build:$CHECKERFRAMEWORK/framework/build:$CHECKERFRAMEWORK/checker/build:$SOLVER/bin:$CHECKERFRAMEWORK/framework/tests/junit-4.12.jar:$CHECKERFRAMEWORK/framework/tests/hamcrest-core-1.3.jar:$CFI/dist/checker-framework-inference.jar:$CFI/dist/org.ow2.sat4j.core-2.3.4.jar:$CFI/dist/commons-logging-1.2.jar:$CFI/dist/log4j-1.2.16.jar:$JSR308/jsr308-langtools/build/classes:$CLASSPATH
+export STUBS="$JSR308"/immutability/src/main/java/pico/typecheck/jdk.astub:/$JSR308/immutability/cf.astub
+
+#parsing build command of the target program
+build_cmd="$2"
+for i in "${@:3}"
+do
+    build_cmd="$build_cmd "${i}""
+done
+
+#Typechecking or inference
+if [[ "$1" = "-t" ]] ; then
+    echo "Running typechecking"
+    CHECKER="pico.typecheck.PICOChecker"
+    #checker tool doesn't support --cfArgs yet, so the arguments don't have effect right now
+    running_cmd="python3 $DLJC/dljc --stubs "${STUBS}" -l "${CLASSPATH}" -t checker --checker "${CHECKER}" -o logs2 -- $build_cmd"
+elif [[ "$1" = "-i" ]] ; then
+    echo "Running inference"
+    echo "Cleaning logs and annotated directory from previous result"
+    rm -rf logs annotated
+    echo "Cleaning Done."
+    CHECKER="pico.inference.PICOInferenceChecker"
+#    SOLVER="checkers.inference.solver.DebugSolver"
+    SOLVER="pico.inference.solver.PICOSolverEngine"
+    running_cmd="python3 $DLJC/dljc -t inference --checker "${CHECKER}" --cfArgs=\"-AoptimalSolution -Astubs=/home/l82sun/workspace/opprop/immutability/src/main/java/pico/inference/jdk.astub\" --solver "${SOLVER}" --solverArgs=\"collectStatistic=true,useGraph=false\"  --guess --stubs="/home/l82sun/workspace/opprop/immutability/src/main/java/pico/inference/jdk.astub" --mode ROUNDTRIP -afud $WORKING_DIR/annotated -o logs -- $build_cmd "
+else
+    echo "Unknown tool: should be either -t|-i but found: ${1}"
+    exit 1
+fi
+
+echo "============ Important variables ============="
+echo "JSR308: $JSR308"
+echo "CLASSPATH: $CLASSPATH"
+echo "build cmd: $build_cmd"
+echo "running cmd: $running_cmd"
+echo "stubs: $STUBS"
+echo "=============================================="
+
+echo "Start Running...."
+eval "$running_cmd"

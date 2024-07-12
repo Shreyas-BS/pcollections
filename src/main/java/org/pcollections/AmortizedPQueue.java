@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;

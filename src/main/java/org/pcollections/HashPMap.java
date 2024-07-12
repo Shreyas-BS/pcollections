@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.io.Serializable;
 import java.util.AbstractSet;
 import java.util.Collection;
@@ -28,7 +31,7 @@ import java.util.Set;
  * @param <K>
  * @param <V>
  */
-public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
+public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmodifiableMap<K, V>
     implements PMap<K, V>, Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -41,7 +44,7 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
    * @return a map backed by an empty version of intMap, i.e. backed by
    *     intMap.minusAll(intMap.keySet())
    */
-  public static <K, V> HashPMap<K, V> empty(final PMap<Integer, PSequence<Entry<K, V>>> intMap) {
+  public static <K extends @Immutable Object, V> HashPMap<K, V> empty(final PMap<Integer, PSequence<Entry<K, V>>> intMap) {
     return new HashPMap<K, V>(intMap.minusAll(intMap.keySet()), 0);
   }
 
@@ -77,7 +80,7 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
 
             // OVERRIDDEN METHODS OF AbstractSet //
             @Override
-            public boolean contains(final Object o) {
+            public boolean contains(final @Readonly Object o) {
               if (!(o instanceof Entry)) return false;
               final Entry e = (Entry) o;
               final Object k = e.getKey();
@@ -95,12 +98,12 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
   }
 
   @Override
-  public boolean containsKey(final Object key) {
+  public boolean containsKey(final @Readonly Object key) {
     return keyIndexIn(getEntries(Objects.hashCode(key)), key) != -1;
   }
 
   @Override
-  public V get(final Object key) {
+  public V get(final @Readonly Object key) {
     PSequence<Entry<K, V>> entries = getEntries(Objects.hashCode(key));
     for (Entry<K, V> entry : entries)
       if (Objects.equals(entry.getKey(), key)) return entry.getValue();
@@ -115,9 +118,9 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
     return result;
   }
 
-  public HashPMap<K, V> minusAll(final Collection<?> keys) {
+  public HashPMap<K, V> minusAll(final @Readonly Collection<?> keys) {
     HashPMap<K, V> result = this;
-    for (Object key : keys) result = result.minus(key);
+    for (@Readonly Object key : keys) result = result.minus(key);
     return result;
   }
 
@@ -130,7 +133,7 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
         intMap.plus(Objects.hashCode(key), entries), size - size0 + entries.size());
   }
 
-  public HashPMap<K, V> minus(final Object key) {
+  public HashPMap<K, V> minus(final @Readonly Object key) {
     PSequence<Entry<K, V>> entries = getEntries(Objects.hashCode(key));
     int i = keyIndexIn(entries, key);
     if (i == -1) // key not in this
@@ -150,7 +153,7 @@ public final class HashPMap<K, V> extends AbstractUnmodifiableMap<K, V>
   }
 
   //// PRIVATE STATIC UTILITIES ////
-  private static <K, V> int keyIndexIn(final PSequence<Entry<K, V>> entries, final Object key) {
+  private static <K, V> int keyIndexIn(final PSequence<Entry<K, V>> entries, final @Readonly Object key) {
     int i = 0;
     for (Entry<K, V> entry : entries) {
       if (Objects.equals(entry.getKey(), key)) return i;

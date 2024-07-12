@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.util.Collection;
 import java.util.Map;
 
@@ -19,7 +22,7 @@ import java.util.Map;
  * @param <K>
  * @param <V>
  */
-public interface PMap<K, V> extends Map<K, V> {
+public interface PMap<K extends @Immutable Object, V> extends Map<@Immutable K, V> {
   /**
    * @param key
    * @param value
@@ -37,22 +40,22 @@ public interface PMap<K, V> extends Map<K, V> {
    * @param key
    * @return a map with the mappings of this but with no value for key
    */
-  public PMap<K, V> minus(Object key);
+  public PMap<K, V> minus(@Readonly Object key);
 
   /**
    * @param keys
    * @return a map with the mappings of this but with no value for any element of keys
    */
-  public PMap<K, V> minusAll(Collection<?> keys);
+  public PMap<K, V> minusAll(@Readonly PMap<K, V> this, @Readonly Collection<?> keys);
 
   @Deprecated
   V put(K k, V v);
 
   @Deprecated
-  V remove(Object k);
+  V remove(@Readonly Object k);
 
   @Deprecated
-  void putAll(Map<? extends K, ? extends V> m);
+  void putAll(@Readonly Map<? extends K, ? extends V> m);
 
   @Deprecated
   void clear();

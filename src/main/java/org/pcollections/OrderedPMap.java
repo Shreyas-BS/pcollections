@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
@@ -27,26 +30,26 @@ import java.util.Set;
  * @param <K>
  * @param <V>
  */
-public class OrderedPMap<K, V> extends AbstractUnmodifiableMap<K, V>
+public class OrderedPMap<K extends @Immutable Object, V> extends AbstractUnmodifiableMap<K, V>
     implements PMap<K, V>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private static final OrderedPMap<Object, Object> EMPTY =
-      new OrderedPMap<Object, Object>(Empty.map(), Empty.sortedMap());
+  private static final OrderedPMap<@Immutable Object, Object> EMPTY =
+      new OrderedPMap<@Immutable Object, Object>(Empty.map(), Empty.sortedMap());
 
   @SuppressWarnings("unchecked")
-  public static <K, V> OrderedPMap<K, V> empty() {
+  public static <K extends @Immutable Object, V> OrderedPMap<K, V> empty() {
     return (OrderedPMap<K, V>) EMPTY;
   }
 
   @SuppressWarnings("unchecked")
-  public static <K, V> OrderedPMap<K, V> from(final Map<? extends K, ? extends V> map) {
+  public static <K extends @Immutable Object, V> OrderedPMap<K, V> from(final Map<? extends K, ? extends V> map) {
     if (map instanceof OrderedPMap) return (OrderedPMap<K, V>) map;
     return OrderedPMap.<K, V>empty().plusAll(map);
   }
 
-  public static <K, V> OrderedPMap<K, V> singleton(final K k, final V v) {
+  public static <K extends @Immutable Object, V> OrderedPMap<K, V> singleton(final K k, final V v) {
     return OrderedPMap.<K, V>empty().plus(k, v);
   }
 
@@ -59,7 +62,7 @@ public class OrderedPMap<K, V> extends AbstractUnmodifiableMap<K, V>
   }
 
   @Override
-  public V get(final Object k) {
+  public V get(final @Readonly Object k) {
     final Long id = ids.get(k);
     if (id == null) return null;
     return entries.get(id).getValue();
@@ -86,14 +89,14 @@ public class OrderedPMap<K, V> extends AbstractUnmodifiableMap<K, V>
   }
 
   @Override
-  public OrderedPMap<K, V> minus(final Object k) {
+  public OrderedPMap<K, V> minus(final @Readonly Object k) {
     final Long id = ids.get(k);
     if (id == null) return this;
     return new OrderedPMap<K, V>(ids.minus(k), entries.minus(id));
   }
 
   @Override
-  public OrderedPMap<K, V> minusAll(final Collection<?> keys) {
+  public OrderedPMap<K, V> minusAll(final @Readonly Collection<?> keys) {
     OrderedPMap<K, V> m = this;
     for (final Object k : keys) {
       m = m.minus(k);
@@ -105,7 +108,7 @@ public class OrderedPMap<K, V> extends AbstractUnmodifiableMap<K, V>
   public Set<Entry<K, V>> entrySet() {
     return new AbstractUnmodifiableSet<Entry<K, V>>() {
       @Override
-      public boolean contains(final Object o) {
+      public boolean contains(final @Readonly Object o) {
         if (!(o instanceof Entry)) return false;
         final Entry e = (Entry) o;
         final Object k = e.getKey();

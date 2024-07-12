@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
@@ -51,7 +54,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    */
   TreePSet(
       final KVTree<E, ?> tree,
-      final Comparator<? super E> ltrComparator,
+      final @Readonly Comparator<? super E> ltrComparator,
       final boolean isLeftToRight) {
 
     this.tree = requireNonNull(tree, "tree is null");
@@ -239,7 +242,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public boolean contains(final Object e) {
+  public boolean contains(final @Readonly Object e) {
     return this.search(sneakilyDowncast(e), KVTree.SearchType.EQ, KVTree.SearchType.EQ) != null;
   }
 
@@ -429,7 +432,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
 
   // we put this in its own method, to limit the scope of the @SuppressWarnings:
   @SuppressWarnings("unchecked")
-  private static <T> T sneakilyDowncast(final Object o) {
+  private static <T> T sneakilyDowncast(final @Readonly Object o) {
     return (T) o;
   }
 }

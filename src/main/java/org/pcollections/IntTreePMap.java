@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Readonly;
+
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
@@ -134,7 +136,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
 
             // OVERRIDDEN METHODS OF AbstractSet //
             @Override
-            public boolean contains(final Object o) {
+            public boolean contains(final @Readonly Object o) {
               if (!(o instanceof Entry)) return false;
               final Entry e = (Entry) o;
               final Object k = e.getKey();
@@ -152,7 +154,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
   }
 
   @Override
-  public boolean containsKey(final Object key) {
+  public boolean containsKey(final @Readonly Object key) {
     if (requireNonNull(key) instanceof Integer) {
       return root.containsKey((Integer) key);
     } else {
@@ -161,7 +163,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
   }
 
   @Override
-  public V get(final Object key) {
+  public V get(final @Readonly Object key) {
     if (!(key instanceof Integer)) return null;
     return root.get((Integer) key);
   }
@@ -171,7 +173,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
     return withRoot(root.plus(key, value));
   }
 
-  public IntTreePMap<V> minus(final Object key) {
+  public IntTreePMap<V> minus(final @Readonly Object key) {
     if (!(requireNonNull(key, "key is null") instanceof Integer)) return this;
     return withRoot(root.minus((Integer) key));
   }
@@ -183,7 +185,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
     return withRoot(root);
   }
 
-  public IntTreePMap<V> minusAll(final Collection<?> keys) {
+  public IntTreePMap<V> minusAll(final @Readonly Collection<?> keys) {
     IntTree<V> root = this.root;
     for (Object key : keys) {
       if (requireNonNull(key, "key is null") instanceof Integer) {

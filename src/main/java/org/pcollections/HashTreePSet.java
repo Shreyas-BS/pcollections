@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.Collection;
 
 /**
@@ -19,14 +21,14 @@ public final class HashTreePSet {
   // not instantiable (or subclassable):
   private HashTreePSet() {}
 
-  private static final MapPSet<Object> EMPTY = MapPSet.from(HashTreePMap.empty());
+  private static final MapPSet<@Immutable Object> EMPTY = MapPSet.from(HashTreePMap.empty());
 
   /**
    * @param <E>
    * @return an empty set
    */
   @SuppressWarnings("unchecked")
-  public static <E> MapPSet<E> empty() {
+  public static <E  extends @Immutable Object> MapPSet<E> empty() {
     return (MapPSet<E>) EMPTY;
   }
 
@@ -35,7 +37,7 @@ public final class HashTreePSet {
    * @param e
    * @return empty().plus(e)
    */
-  public static <E> MapPSet<E> singleton(final E e) {
+  public static <E  extends @Immutable Object> MapPSet<E> singleton(final E e) {
     return HashTreePSet.<E>empty().plus(e);
   }
 
@@ -44,7 +46,7 @@ public final class HashTreePSet {
    * @param list
    * @return empty().plusAll(map)
    */
-  public static <E> MapPSet<E> from(final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPSet<E> from(final Collection<? extends E> list) {
     return HashTreePSet.<E>empty().plusAll(list);
   }
 }

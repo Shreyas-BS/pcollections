@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -20,7 +22,7 @@ public final class HashTreePMap {
   // not instantiable (or subclassable):
   private HashTreePMap() {}
 
-  private static final HashPMap<Object, Object> EMPTY =
+  private static final HashPMap<@Immutable Object, Object> EMPTY =
       HashPMap.empty(IntTreePMap.<PSequence<Entry<Object, Object>>>empty());
 
   /**
@@ -29,7 +31,7 @@ public final class HashTreePMap {
    * @return an empty map
    */
   @SuppressWarnings("unchecked")
-  public static <K, V> HashPMap<K, V> empty() {
+  public static <K extends @Immutable Object, V> HashPMap<K, V> empty() {
     return (HashPMap<K, V>) EMPTY;
   }
 
@@ -40,7 +42,7 @@ public final class HashTreePMap {
    * @param value
    * @return empty().plus(key, value)
    */
-  public static <K, V> HashPMap<K, V> singleton(final K key, final V value) {
+  public static <K extends @Immutable Object, V> HashPMap<K, V> singleton(final K key, final V value) {
     return HashTreePMap.<K, V>empty().plus(key, value);
   }
 
@@ -50,7 +52,7 @@ public final class HashTreePMap {
    * @param map
    * @return empty().plusAll(map)
    */
-  public static <K, V> HashPMap<K, V> from(final Map<? extends K, ? extends V> map) {
+  public static <K extends @Immutable Object, V> HashPMap<K, V> from(final Map<? extends K, ? extends V> map) {
     return HashTreePMap.<K, V>empty().plusAll(map);
   }
 }

@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
@@ -22,25 +25,25 @@ import java.util.LinkedHashSet;
  *
  * @param <E>
  */
-public class OrderedPSet<E> extends AbstractUnmodifiableSet<E> implements PSet<E>, Serializable {
+public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifiableSet<E> implements PSet<E>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private static final OrderedPSet<Object> EMPTY =
-      new OrderedPSet<Object>(Empty.map(), Empty.sortedMap());
+  private static final OrderedPSet<@Immutable Object> EMPTY =
+      new OrderedPSet<@Immutable Object>(Empty.map(), Empty.sortedMap());
 
   @SuppressWarnings("unchecked")
-  public static <E> OrderedPSet<E> empty() {
+  public static <E extends @Immutable Object> OrderedPSet<E> empty() {
     return (OrderedPSet<E>) EMPTY;
   }
 
   @SuppressWarnings("unchecked")
-  public static <E> OrderedPSet<E> from(final Collection<? extends E> list) {
+  public static <E extends @Immutable Object> OrderedPSet<E> from(final Collection<? extends E> list) {
     if (list instanceof OrderedPSet) return (OrderedPSet<E>) list;
     return OrderedPSet.<E>empty().plusAll(list);
   }
 
-  public static <E> OrderedPSet<E> singleton(final E e) {
+  public static <E extends @Immutable Object> OrderedPSet<E> singleton(final E e) {
     return OrderedPSet.<E>empty().plus(e);
   }
 
@@ -69,7 +72,7 @@ public class OrderedPSet<E> extends AbstractUnmodifiableSet<E> implements PSet<E
   }
 
   @Override
-  public OrderedPSet<E> minus(final Object e) {
+  public OrderedPSet<E> minus(final @Readonly Object e) {
     final Long id = ids.get(e);
     if (id == null) return this;
     return new OrderedPSet<E>(ids.minus(e), elements.minus(id));

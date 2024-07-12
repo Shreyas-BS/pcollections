@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.Collection;
 
 /**
@@ -19,14 +21,14 @@ public final class HashTreePBag {
   // not instantiable (or subclassable):
   private HashTreePBag() {}
 
-  private static final MapPBag<Object> EMPTY = MapPBag.empty(HashTreePMap.<Object, Integer>empty());
+  private static final MapPBag<@Immutable Object> EMPTY = MapPBag.empty(HashTreePMap.<@Immutable Object, Integer>empty());
 
   /**
    * @param <E>
    * @return an empty bag
    */
   @SuppressWarnings("unchecked")
-  public static <E> MapPBag<E> empty() {
+  public static <E  extends @Immutable Object> MapPBag<E> empty() {
     return (MapPBag<E>) EMPTY;
   }
 
@@ -35,7 +37,7 @@ public final class HashTreePBag {
    * @param e
    * @return empty().plus(e)
    */
-  public static <E> MapPBag<E> singleton(final E e) {
+  public static <E  extends @Immutable Object> MapPBag<E> singleton(final E e) {
     return HashTreePBag.<E>empty().plus(e);
   }
 
@@ -44,7 +46,7 @@ public final class HashTreePBag {
    * @param list
    * @return empty().plusAll(map)
    */
-  public static <E> MapPBag<E> from(final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPBag<E> from(final Collection<? extends E> list) {
     return HashTreePBag.<E>empty().plusAll(list);
   }
 }

@@ -6,6 +6,10 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Mutable;
+import qual.Readonly;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
@@ -113,7 +117,7 @@ public class TreePVector<E> extends AbstractUnmodifiableList<E>
     return new TreePVector<E>(map.withKeysChangedAbove(i, 1).plus(i, e));
   }
 
-  public TreePVector<E> minus(final Object e) {
+  public TreePVector<E> minus(final @Readonly Object e) {
     for (Entry<Integer, E> entry : map.entrySet())
       if (Objects.equals(entry.getValue(), e)) return minus((int) entry.getKey());
     return this;

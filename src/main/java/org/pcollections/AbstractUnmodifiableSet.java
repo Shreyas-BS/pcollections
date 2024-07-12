@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Readonly;
+
 import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.function.Predicate;
@@ -35,7 +37,7 @@ public abstract class AbstractUnmodifiableSet<E> extends AbstractSet<E> {
    */
   @Deprecated
   @Override
-  public boolean addAll(final Collection<? extends E> list) {
+  public boolean addAll(final @Readonly Collection<? extends E> list) {
     throw new UnsupportedOperationException();
   }
 
@@ -55,7 +57,7 @@ public abstract class AbstractUnmodifiableSet<E> extends AbstractSet<E> {
    */
   @Deprecated
   @Override
-  public boolean remove(final Object o) {
+  public boolean remove(final @Readonly Object o) {
     throw new UnsupportedOperationException();
   }
 

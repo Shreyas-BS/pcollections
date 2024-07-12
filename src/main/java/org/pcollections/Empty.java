@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.Comparator;
 
 /* Mike Klein, 2/27/2009 */
@@ -35,23 +37,23 @@ public final class Empty {
     return TreePVector.empty();
   }
 
-  public static <E> PSet<E> set() {
+  public static <E extends @Immutable Object> PSet<E> set() {
     return HashTreePSet.empty();
   }
 
-  public static <K, V> PMap<K, V> orderedMap() {
+  public static <K extends @Immutable Object, V> PMap<K, V> orderedMap() {
     return OrderedPMap.empty();
   }
 
-  public static <E> PSet<E> orderedSet() {
+  public static <E extends @Immutable Object> PSet<E> orderedSet() {
     return OrderedPSet.empty();
   }
 
-  public static <E> PBag<E> bag() {
+  public static <E extends @Immutable Object> PBag<E> bag() {
     return HashTreePBag.empty();
   }
 
-  public static <K, V> PMap<K, V> map() {
+  public static <K extends @Immutable Object, V> PMap<K, V> map() {
     return HashTreePMap.empty();
   }
 
@@ -63,11 +65,11 @@ public final class Empty {
     return TreePSet.empty(comparator);
   }
 
-  public static <K extends Comparable<? super K>, V> PSortedMap<K, V> sortedMap() {
+  public static <K extends @Immutable Comparable<? super K>, V> PSortedMap<K, V> sortedMap() {
     return TreePMap.empty();
   }
 
-  public static <K, V> PSortedMap<K, V> sortedMap(final Comparator<? super K> comparator) {
+  public static <K extends @Immutable Object, V> PSortedMap<K, V> sortedMap(final Comparator<? super K> comparator) {
     return TreePMap.empty(comparator);
   }
 }

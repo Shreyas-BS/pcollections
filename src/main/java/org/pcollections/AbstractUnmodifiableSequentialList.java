@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Readonly;
+
 import java.util.AbstractSequentialList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -44,7 +46,7 @@ public abstract class AbstractUnmodifiableSequentialList<E> extends AbstractSequ
    */
   @Deprecated
   @Override
-  public boolean addAll(final Collection<? extends E> c) {
+  public boolean addAll(final @Readonly Collection<? extends E> c) {
     throw new UnsupportedOperationException();
   }
 
@@ -54,7 +56,7 @@ public abstract class AbstractUnmodifiableSequentialList<E> extends AbstractSequ
    */
   @Deprecated
   @Override
-  public boolean addAll(final int index, final Collection<? extends E> c) {
+  public boolean addAll(final int index, final @Readonly Collection<? extends E> c) {
     throw new UnsupportedOperationException();
   }
 
@@ -84,7 +86,7 @@ public abstract class AbstractUnmodifiableSequentialList<E> extends AbstractSequ
    */
   @Deprecated
   @Override
-  public boolean remove(final Object o) {
+  public boolean remove(final @Readonly Object o) {
     throw new UnsupportedOperationException();
   }
 
@@ -94,7 +96,7 @@ public abstract class AbstractUnmodifiableSequentialList<E> extends AbstractSequ
    */
   @Deprecated
   @Override
-  public boolean removeAll(final Collection<?> c) {
+  public boolean removeAll(final @Readonly Collection<?> c) {
     throw new UnsupportedOperationException();
   }
 

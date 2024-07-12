@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;

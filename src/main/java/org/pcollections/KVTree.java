@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Readonly;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -180,11 +182,11 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   }
 
   static <K, V> KVTree<K, V> fromEntryIterator(
-      final Iterator<? extends Map.Entry<? extends K, ? extends V>> iterator) {
+      final @Readonly Iterator<? extends Map.Entry<? extends K, ? extends V>> iterator) {
     return fromIterator(iterator, IteratorType.ENTRY, Integer.MAX_VALUE);
   }
 
-  static <K, V> KVTree<K, V> fromKeyIterator(final Iterator<? extends K> iterator) {
+  static <K, V> KVTree<K, V> fromKeyIterator(final @Readonly Iterator<? extends K> iterator) {
     return fromIterator(iterator, IteratorType.KEY, Integer.MAX_VALUE);
   }
 
@@ -200,7 +202,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   }
 
   private static <K, V> KVTree<K, V> fromIterator(
-      final Iterator<?> iterator, final IteratorType iteratorType, final int maxHeight) {
+      final @Readonly Iterator<?> iterator, final IteratorType iteratorType, final int maxHeight) {
     KVTree<K, V> curr = KVTree.empty();
     while (true) {
       if (curr.height >= maxHeight) {

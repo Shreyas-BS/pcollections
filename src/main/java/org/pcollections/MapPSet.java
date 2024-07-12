@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
@@ -19,8 +22,7 @@ import java.util.Iterator;
  * @author harold
  * @param <E>
  */
-public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet<E>, Serializable {
-
+public final class MapPSet< E extends @Immutable Object> extends AbstractUnmodifiableSet< E> implements PSet< E>, Serializable {
   private static final long serialVersionUID = 1L;
 
   //// STATIC FACTORY METHODS ////
@@ -30,8 +32,8 @@ public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet
    * @return a PSet with the elements of map.keySet(), backed by map
    */
   @SuppressWarnings("unchecked")
-  public static <E> MapPSet<E> from(final PMap<E, ?> map) {
-    return new MapPSet<E>((PMap<E, Object>) map);
+  public static <E  extends @Immutable Object> MapPSet<E> from(final PMap< E, ?> map) {
+    return new MapPSet<E>((PMap< E, @Immutable Object>) map);
   }
 
   /**
@@ -40,7 +42,7 @@ public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet
    * @param e
    * @return from(map).plus(e)
    */
-  public static <E> MapPSet<E> from(final PMap<E, ?> map, E e) {
+  public static <E  extends @Immutable Object> MapPSet<E> from(final PMap< E, ?> map, E e) {
     return from(map).plus(e);
   }
 
@@ -50,21 +52,21 @@ public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet
    * @param list
    * @return from(map).plusAll(list)
    */
-  public static <E> MapPSet<E> from(final PMap<E, ?> map, final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPSet<E> from(final PMap< E, ?> map, final Collection<? extends E> list) {
     return from(map).plusAll(list);
   }
 
   //// PRIVATE CONSTRUCTORS ////
-  private final PMap<E, Object> map;
+  private final PMap<E, @Immutable Object> map;
 
   // not instantiable (or subclassable):
-  private MapPSet(final PMap<E, Object> map) {
+  private MapPSet(final PMap<E, @Immutable Object> map) {
     this.map = map;
   }
 
   //// REQUIRED METHODS FROM AbstractSet ////
   @Override
-  public Iterator<E> iterator() {
+  public @Readonly Iterator<E> iterator() {
     return map.keySet().iterator();
   }
 
@@ -75,13 +77,13 @@ public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet
 
   //// OVERRIDDEN METHODS OF AbstractSet ////
   @Override
-  public boolean contains(final Object e) {
+  public boolean contains(final @Readonly Object e) {
     return map.containsKey(e);
   }
 
   //// IMPLEMENTED METHODS OF PSet ////
-  private static enum In {
-    IN
+  private @Immutable static enum In {
+    @Immutable IN
   }
 
   public MapPSet<E> plus(final E e) {
@@ -95,13 +97,13 @@ public final class MapPSet<E> extends AbstractUnmodifiableSet<E> implements PSet
   }
 
   public MapPSet<E> plusAll(final Collection<? extends E> list) {
-    PMap<E, Object> map = this.map;
+    PMap<E, @Immutable Object> map = this.map;
     for (E e : list) map = map.plus(e, In.IN);
     return from(map);
   }
 
   public MapPSet<E> minusAll(final Collection<?> list) {
-    PMap<E, Object> map = this.map.minusAll(list);
+    PMap<E, @Immutable Object> map = this.map.minusAll(list);
     return from(map);
   }
 

@@ -1,0 +1,64 @@
+[
+    {
+        "java_files": [
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPBag.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableList.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AmortizedPQueue.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePBag.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PVector.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PQueue.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSequence.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PBag.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableQueue.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSortedSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/IntTreePMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/OrderedPMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableCollection.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/OrderedPSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/IntTree.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/ConsPStack.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSortedMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableSequentialList.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/MapPSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/KVTree.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PStack.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashPMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/HashTreePSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/AbstractUnmodifiableMap.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PCollection.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/TreePVector.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/PSet.java",
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/org/pcollections/Empty.java"
+        ],
+        "javac_switches": {
+            "-release": "8",
+            "classpath": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/libs/immutability.jar",
+            "d": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/build/classes/java/main",
+            "g": true,
+            "h": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/build/generated/sources/headers/java/main",
+            "proc:none": true,
+            "s": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/build/generated/sources/annotationProcessor/java/main",
+            "sourcepath": ""
+        }
+    },
+    {
+        "java_files": [
+            "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java/module-info.java"
+        ],
+        "javac_switches": {
+            "-module-path": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/immutability/build/libs/immutability.jar",
+            "-module-version": "4.0.3-SNAPSHOT",
+            "-patch-module": "org.pcollections=/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/build/classes/module-info",
+            "-release": "9",
+            "d": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/build/classes/module-info",
+            "g": true,
+            "proc:none": true,
+            "sourcepath": "/Users/shreyasbs/Desktop/Documents/uWaterloo/ECE699/PICO2/pcollections/src/main/java"
+        }
+    }
+]

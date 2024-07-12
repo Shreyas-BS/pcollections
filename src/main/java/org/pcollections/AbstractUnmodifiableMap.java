@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.Readonly;
+
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -20,7 +23,7 @@ import java.util.function.Function;
  * @author Ran Ari-Gur
  * @since 3.2.0
  */
-public abstract class AbstractUnmodifiableMap<K, V> extends AbstractMap<K, V> {
+public abstract class AbstractUnmodifiableMap<K extends @Immutable Object, V> extends AbstractMap<K, V> {
 
   /**
    * @throws UnsupportedOperationException always
@@ -90,7 +93,7 @@ public abstract class AbstractUnmodifiableMap<K, V> extends AbstractMap<K, V> {
    */
   @Deprecated
   @Override
-  public void putAll(final Map<? extends K, ? extends V> map) {
+  public void putAll(final @Readonly Map<? extends K, ? extends V> map) {
     throw new UnsupportedOperationException();
   }
 
@@ -110,7 +113,7 @@ public abstract class AbstractUnmodifiableMap<K, V> extends AbstractMap<K, V> {
    */
   @Deprecated
   @Override
-  public V remove(final Object o) {
+  public V remove(final @Readonly Object o) {
     throw new UnsupportedOperationException();
   }
 

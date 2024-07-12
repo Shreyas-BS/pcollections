@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.NavigableSet;
