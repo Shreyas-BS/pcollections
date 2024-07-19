@@ -6,6 +6,7 @@
 
 package org.pcollections;
 
+import qual.Immutable;
 import qual.Readonly;
 
 import java.util.AbstractSet;
@@ -20,6 +21,7 @@ import java.util.function.Predicate;
  * @author Ran Ari-Gur
  * @since 3.2.0
  */
+@Immutable
 public abstract class AbstractUnmodifiableSet<E> extends AbstractSet<E> {
   /**
    * @throws UnsupportedOperationException always

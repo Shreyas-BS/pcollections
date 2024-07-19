@@ -23,6 +23,7 @@ import java.util.function.Function;
  * @author Ran Ari-Gur
  * @since 3.2.0
  */
+@Immutable
 public abstract class AbstractUnmodifiableMap<K extends @Immutable Object, V> extends AbstractMap<K, V> {
 
   /**

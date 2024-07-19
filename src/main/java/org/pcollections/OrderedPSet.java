@@ -25,11 +25,12 @@ import java.util.LinkedHashSet;
  *
  * @param <E>
  */
+@Immutable
 public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifiableSet<E> implements PSet<E>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private static final OrderedPSet<@Immutable Object> EMPTY =
+  private static final @Immutable OrderedPSet<@Immutable Object> EMPTY =
       new OrderedPSet<@Immutable Object>(Empty.map(), Empty.sortedMap());
 
   @SuppressWarnings("unchecked")
@@ -38,7 +39,7 @@ public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifia
   }
 
   @SuppressWarnings("unchecked")
-  public static <E extends @Immutable Object> OrderedPSet<E> from(final Collection<? extends E> list) {
+  public static <E extends @Immutable Object> OrderedPSet<E> from(final @Immutable Collection<? extends E> list) {
     if (list instanceof OrderedPSet) return (OrderedPSet<E>) list;
     return OrderedPSet.<E>empty().plusAll(list);
   }
@@ -48,7 +49,7 @@ public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifia
   }
 
   private final PMap<E, Long> ids;
-  private final PSortedMap<Long, E> elements;
+  private final @Immutable PSortedMap<Long, E> elements;
 
   private OrderedPSet(final PMap<E, Long> ids, final PSortedMap<Long, E> elements) {
     this.ids = requireNonNull(ids, "ids is null");
@@ -63,7 +64,7 @@ public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifia
   }
 
   @Override
-  public OrderedPSet<E> plusAll(final Collection<? extends E> list) {
+  public OrderedPSet<E> plusAll(final @Immutable Collection<? extends E> list) {
     OrderedPSet<E> s = this;
     for (final E e : list) {
       s = s.plus(e);
@@ -79,7 +80,7 @@ public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifia
   }
 
   @Override
-  public OrderedPSet<E> minusAll(final Collection<?> list) {
+  public OrderedPSet<E> minusAll(final @Immutable Collection<?> list) {
     OrderedPSet<E> s = this;
     for (final Object e : list) {
       s = s.minus(e);
@@ -88,12 +89,12 @@ public class OrderedPSet<E  extends @Immutable Object> extends AbstractUnmodifia
   }
 
   @Override
-  public OrderedPSet<E> intersect(Collection<? extends E> list) {
+  public OrderedPSet<E> intersect(@Immutable Collection<? extends E> list) {
     return this.minusAll(this.minusAll(list));
   }
 
   @Override
-  public Iterator<E> iterator() {
+  public @Immutable Iterator<E> iterator() {
     return elements.values().iterator();
   }
 

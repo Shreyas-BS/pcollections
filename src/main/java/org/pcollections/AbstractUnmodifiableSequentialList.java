@@ -6,6 +6,7 @@
 
 package org.pcollections;
 
+import qual.Immutable;
 import qual.Readonly;
 
 import java.util.AbstractSequentialList;
@@ -18,6 +19,7 @@ import java.util.function.UnaryOperator;
  * A subclass of AbstractSequentialList that overrides the various mutator methods to mark them as
  * deprecated and unconditionally throw UnsupportedOperationException.
  */
+@Immutable
 public abstract class AbstractUnmodifiableSequentialList<E> extends AbstractSequentialList<E> {
 
   /**

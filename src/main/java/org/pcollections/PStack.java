@@ -7,6 +7,7 @@
 package org.pcollections;
 
 import qual.Immutable;
+import qual.Readonly;
 
 import java.util.Collection;
 
@@ -16,6 +17,7 @@ import java.util.Collection;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PStack<E> extends PSequence<E> {
 
   /** Returns a stack consisting of the elements of this with e prepended. */
@@ -24,7 +26,7 @@ public interface PStack<E> extends PSequence<E> {
 
   /** Returns a stack consisting of the elements of this with list prepended in reverse. */
   // @Override
-  public PStack<E> plusAll(Collection<? extends E> list);
+  public PStack<E> plusAll(@Immutable Collection<? extends E> list);
 
   // @Override
   public PStack<E> with(int i, E e);
@@ -33,13 +35,13 @@ public interface PStack<E> extends PSequence<E> {
   public PStack<E> plus(int i, E e);
 
   // @Override
-  public PStack<E> plusAll(int i, Collection<? extends E> list);
+  public PStack<E> plusAll(int i, @Immutable Collection<? extends E> list);
 
   // @Override
   public PStack<E> minus(Object e);
 
   // @Override
-  public PStack<E> minusAll(Collection<?> list);
+  public PStack<E> minusAll(@Immutable Collection<?> list);
 
   // @Override
   public PStack<E> minus(int i);

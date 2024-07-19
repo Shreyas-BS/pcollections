@@ -40,12 +40,13 @@ import java.util.stream.Collectors;
  * @author Ran Ari-Gur
  * @since 3.2.0
  */
+@Immutable
 public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
     implements PSortedSet<E>, Serializable {
   private static final long serialVersionUID = 1L;
 
-  private final KVTree<E, ?> tree;
-  private final Comparator<? super E> ltrComparator;
+  private final @Immutable KVTree<E, ?> tree;
+  private final @Immutable Comparator<? super E> ltrComparator;
   private final boolean isLeftToRight;
 
   /**
@@ -54,7 +55,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    */
   TreePSet(
       final KVTree<E, ?> tree,
-      final @Readonly Comparator<? super E> ltrComparator,
+      final @Immutable Comparator<? super E> ltrComparator,
       final boolean isLeftToRight) {
 
     this.tree = requireNonNull(tree, "tree is null");
@@ -80,7 +81,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @return an empty TreePSet using the specified comparator
    * @throws NullPointerException if comparator is null
    */
-  public static <E> TreePSet<E> empty(final Comparator<? super E> comparator) {
+  public static <E> TreePSet<E> empty(final @Immutable Comparator<? super E> comparator) {
     return new TreePSet<E>(KVTree.empty(), comparator, true);
   }
 
@@ -93,7 +94,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @throws NullPointerException if list is null or contains null
    */
   public static <E extends Comparable<? super E>> TreePSet<E> from(
-      final Collection<? extends E> list) {
+      final @Immutable Collection<? extends E> list) {
     return TreePSet.from(Comparator.naturalOrder(), list);
   }
 
@@ -108,7 +109,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @throws NullPointerException if the comparator is null or the collection is or contains null
    */
   public static <E> TreePSet<E> from(
-      final Comparator<? super E> comparator, final Collection<? extends E> list) {
+      final @Immutable Comparator<? super E> comparator, final @Immutable Collection<? extends E> list) {
     return TreePSet.<E>empty(comparator).plusAll(list);
   }
 
@@ -122,7 +123,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @return a TreePSet with the same elements and ordering as the specified set
    * @throws NullPointerException if the specified set is or contains null
    */
-  public static <E> TreePSet<E> fromSortedSet(final SortedSet<E> set) {
+  public static <E> TreePSet<E> fromSortedSet(final @Immutable SortedSet<E> set) {
     if (requireNonNull(set, "set is null") instanceof TreePSet<?>) {
       return (TreePSet<E>) set;
     }
@@ -137,8 +138,8 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
       }
     }
 
-    final Comparator<? super E> thatComparator = set.comparator();
-    final Comparator<? super E> comparator =
+    final @Immutable Comparator<? super E> thatComparator = set.comparator();
+    final @Immutable Comparator<? super E> comparator =
         thatComparator == null ? sneakilyDowncast(Comparator.naturalOrder()) : thatComparator;
 
     return new TreePSet<E>(tree, comparator, true);
@@ -171,7 +172,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    *     elements is null, or if the varargs array-ref is itself null
    */
   @SafeVarargs
-  public static <E> TreePSet<E> of(final Comparator<? super E> comparator, final E... elements) {
+  public static <E> TreePSet<E> of(final @Immutable Comparator<? super E> comparator, final E... elements) {
     return TreePSet.<E>empty(comparator).plusAll(Arrays.asList(elements));
   }
 
@@ -196,7 +197,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @return a TreePSet containing the specified element and using the specified comparator
    * @throws NullPointerException if either the comparator or the element is null
    */
-  public static <E> TreePSet<E> singleton(final Comparator<? super E> comparator, final E e) {
+  public static <E> TreePSet<E> singleton(final @Immutable Comparator<? super E> comparator, final E e) {
     return TreePSet.<E>empty(comparator).plus(e);
   }
 
@@ -223,7 +224,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
    * @throws NullPointerException if the comparator is null
    */
   public static <E> Collector<E, ?, TreePSet<E>> toTreePSet(
-      final Comparator<? super E> comparator) {
+      final @Immutable Comparator<? super E> comparator) {
     requireNonNull(comparator, "comparator is null");
 
     return Collectors.collectingAndThen(
@@ -237,7 +238,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public Comparator<? super E> comparator() {
+  public @Immutable Comparator<? super E> comparator() {
     return this.isLeftToRight ? this.ltrComparator : this.ltrComparator.reversed();
   }
 
@@ -247,7 +248,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public Iterator<E> descendingIterator() {
+  public @Immutable Iterator<E> descendingIterator() {
     return this.descendingSet().iterator();
   }
 
@@ -287,10 +288,10 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public Iterator<E> iterator() {
+  public @Immutable Iterator<E> iterator() {
     final Iterator<? extends Map.Entry<E, ?>> entryIterator =
         this.tree.entryIterator(this.isLeftToRight);
-    return new Iterator<E>() {
+    return new @Immutable Iterator<E>() {
       @Override
       public boolean hasNext() {
         return entryIterator.hasNext();
@@ -321,7 +322,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public TreePSet<E> minusAll(final Collection<?> list) {
+  public TreePSet<E> minusAll(final @Immutable Collection<?> list) {
 
     KVTree<E, ?> tree = this.tree;
 
@@ -335,7 +336,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public TreePSet<E> intersect(Collection<? extends E> list) {
+  public TreePSet<E> intersect(@Immutable Collection<? extends E> list) {
     return this.minusAll(this.minusAll(list));
   }
 
@@ -358,7 +359,7 @@ public final class TreePSet<E> extends AbstractUnmodifiableSet<E>
   }
 
   @Override
-  public TreePSet<E> plusAll(final Collection<? extends E> list) {
+  public TreePSet<E> plusAll(final @Immutable Collection<? extends E> list) {
     KVTree<E, ?> tree = this.tree;
 
     for (final E e : requireNonNull(list, "list is null")) {

@@ -25,13 +25,14 @@ import java.util.NoSuchElementException;
  * @author harold
  * @param <E>
  */
+@Immutable
 public final class ConsPStack<E> extends AbstractUnmodifiableSequentialList<E>
     implements PStack<E>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
   //// STATIC FACTORY METHODS ////
-  private static final ConsPStack<Object> EMPTY = new ConsPStack<Object>();
+  private static final @Immutable ConsPStack<Object> EMPTY = new ConsPStack<Object>();
 
   /**
    * @param <E>
@@ -158,7 +159,7 @@ public final class ConsPStack<E> extends AbstractUnmodifiableSequentialList<E>
     if (end == size) return this;
 
     // remove from end (by popping off until end, and then pushing back on)
-    ConsPStack<E> reversed = empty();
+    @Immutable ConsPStack<E> reversed = empty();
     for (final E e : this) {
       if (reversed.size == end) break;
       reversed = reversed.plus(e);
@@ -171,7 +172,7 @@ public final class ConsPStack<E> extends AbstractUnmodifiableSequentialList<E>
     return new ConsPStack<E>(e, this);
   }
 
-  public ConsPStack<E> plusAll(final Collection<? extends E> list) {
+  public ConsPStack<E> plusAll(final @Immutable Collection<? extends E> list) {
     ConsPStack<E> result = this;
     for (E e : list) result = result.plus(e);
     return result;
@@ -181,11 +182,11 @@ public final class ConsPStack<E> extends AbstractUnmodifiableSequentialList<E>
     return plusAll(i, singleton(e));
   }
 
-  public ConsPStack<E> plusAll(final int i, final Collection<? extends E> list) {
+  public ConsPStack<E> plusAll(final int i, final @Immutable Collection<? extends E> list) {
     if (i < 0 || i > size) throw new IndexOutOfBoundsException();
     if (list.isEmpty()) return this;
 
-    ConsPStack<E> reversed = empty();
+    @Immutable ConsPStack<E> reversed = empty();
     ConsPStack<E> suffix = this;
     while (reversed.size < i) {
       reversed = reversed.plus(suffix.first);
@@ -212,7 +213,7 @@ public final class ConsPStack<E> extends AbstractUnmodifiableSequentialList<E>
     return suffix.plusAll(reversed.rest); // plusAll reverses again
   }
 
-  public ConsPStack<E> minusAll(final Collection<?> list) {
+  public ConsPStack<E> minusAll(final @Immutable Collection<?> list) {
     if (list.isEmpty()) return this;
 
     ConsPStack<E> kept = empty();

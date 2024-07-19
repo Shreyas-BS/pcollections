@@ -44,6 +44,7 @@ import java.util.stream.Collector;
  * @author Ran Ari-Gur
  * @since 3.2.0
  */
+@Immutable
 public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmodifiableMap<K, V>
     implements PSortedMap<K, V>, Serializable {
   private static final long serialVersionUID = 1L;
@@ -82,7 +83,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @return an empty TreePMap using the specified comparator
    * @throws NullPointerException if comparator is null
    */
-  public static <K extends @Immutable Object, V> TreePMap<K, V> empty(final Comparator<? super K> comparator) {
+  public static <K extends @Immutable Object, V> TreePMap<K, V> empty(final @Immutable Comparator<? super K> comparator) {
     return new TreePMap<>(KVTree.empty(), comparator, true);
   }
 
@@ -111,7 +112,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @throws NullPointerException if the comparator or map is null or the map contains a null key
    */
   public static <K extends @Immutable Object, V> TreePMap<K, V> from(
-      final Comparator<? super K> comparator, final Map<? extends K, ? extends V> map) {
+      final @Immutable Comparator<? super K> comparator, final Map<? extends K, ? extends V> map) {
     return TreePMap.<K, V>empty(comparator).plusAll(map);
   }
 
@@ -178,7 +179,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @throws NullPointerException if the specified comparator or key is null
    */
   public static <K extends @Immutable Object, V> TreePMap<K, V> singleton(
-      final Comparator<? super K> comparator, final K key, final V value) {
+      final @Immutable Comparator<? super K> comparator, final K key, final V value) {
     return TreePMap.<K, V>empty(comparator).plus(key, value);
   }
 
@@ -216,7 +217,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @throws NullPointerException if any of this method's arguments are null
    */
   public static <T, K extends @Immutable Object, V> Collector<T, ?, TreePMap<K, V>> toTreePMap(
-      final Comparator<? super K> comparator,
+      final @Immutable Comparator<? super K> comparator,
       final Function<? super T, ? extends K> keyMapper,
       final Function<? super T, ? extends V> valueMapper) {
     final BinaryOperator<V> mergeFunction =
@@ -264,7 +265,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @throws NullPointerException if any of this method's arguments are null
    */
   public static <T, K extends @Immutable Object, V> Collector<T, ?, TreePMap<K, V>> toTreePMap(
-      final Comparator<? super K> comparator,
+      final @Immutable Comparator<? super K> comparator,
       final Function<? super T, ? extends K> keyMapper,
       final Function<? super T, ? extends V> valueMapper,
       final BinaryOperator<V> mergeFunction) {
@@ -319,7 +320,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
   }
 
   @Override
-  public Comparator<? super K> comparator() {
+  public @Immutable Comparator<? super K> comparator() {
     return this.isLeftToRight ? this.ltrComparator : this.ltrComparator.reversed();
   }
 
@@ -340,7 +341,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
   }
 
   @Override
-  public Set<Entry<K, V>> entrySet() {
+  public @Immutable Set<Entry<K, V>> entrySet() {
     return new AbstractUnmodifiableSet<Map.Entry<K, V>>() {
       @Override
       public boolean contains(final @Readonly Object o) {
@@ -560,7 +561,7 @@ public final class TreePMap<K extends @Immutable Object, V> extends AbstractUnmo
         this.isLeftToRight ? searchTypeIfLeftToRight : searchTypeIfRightToLeft);
   }
 
-  private TreePMap<K, V> withTree(final KVTree<K, V> updatedTree) {
+  private TreePMap<K, V> withTree(final @Immutable KVTree<K, V> updatedTree) {
     return updatedTree == this.tree
         ? this
         : new TreePMap<K, V>(updatedTree, this.ltrComparator, this.isLeftToRight);

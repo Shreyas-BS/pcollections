@@ -22,6 +22,7 @@ import java.util.Iterator;
  * @author harold
  * @param <E>
  */
+@Immutable
 public final class MapPSet< E extends @Immutable Object> extends AbstractUnmodifiableSet< E> implements PSet< E>, Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -52,7 +53,7 @@ public final class MapPSet< E extends @Immutable Object> extends AbstractUnmodif
    * @param list
    * @return from(map).plusAll(list)
    */
-  public static <E  extends @Immutable Object> MapPSet<E> from(final PMap< E, ?> map, final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPSet<E> from(final PMap< E, ?> map, final @Immutable Collection<? extends E> list) {
     return from(map).plusAll(list);
   }
 
@@ -66,7 +67,7 @@ public final class MapPSet< E extends @Immutable Object> extends AbstractUnmodif
 
   //// REQUIRED METHODS FROM AbstractSet ////
   @Override
-  public @Readonly Iterator<E> iterator() {
+  public @Immutable Iterator<E> iterator() {
     return map.keySet().iterator();
   }
 
@@ -96,19 +97,19 @@ public final class MapPSet< E extends @Immutable Object> extends AbstractUnmodif
     return new MapPSet<E>(map.minus(e));
   }
 
-  public MapPSet<E> plusAll(final Collection<? extends E> list) {
+  public MapPSet<E> plusAll(final @Immutable Collection<? extends E> list) {
     PMap<E, @Immutable Object> map = this.map;
     for (E e : list) map = map.plus(e, In.IN);
     return from(map);
   }
 
-  public MapPSet<E> minusAll(final Collection<?> list) {
+  public MapPSet<E> minusAll(final @Immutable Collection<?> list) {
     PMap<E, @Immutable Object> map = this.map.minusAll(list);
     return from(map);
   }
 
   @Override
-  public MapPSet<E> intersect(Collection<? extends E> list) {
+  public MapPSet<E> intersect(@Immutable Collection<? extends E> list) {
     return this.minusAll(this.minusAll(list));
   }
 }

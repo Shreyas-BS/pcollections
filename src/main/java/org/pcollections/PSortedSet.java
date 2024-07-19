@@ -7,6 +7,7 @@
 package org.pcollections;
 
 import qual.Immutable;
+import qual.Readonly;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -75,6 +76,7 @@ import java.util.NoSuchElementException;
  * @see org.pcollections.PSortedMap
  * @see org.pcollections.TreePSet
  */
+@Immutable
 public interface PSortedSet<E> extends PSet<E>, NavigableSet<E> {
   /**
    * @return The comparator used to order the elements in this set. May be null if this set uses the
@@ -82,7 +84,7 @@ public interface PSortedSet<E> extends PSet<E>, NavigableSet<E> {
    *     library (pcollections) return a Comparator instance that implements the natural ordering.
    */
   @Override
-  public Comparator<? super E> comparator();
+  public @Immutable Comparator<? super E> comparator();
 
   @Override
   public PSortedSet<E> descendingSet();
@@ -112,10 +114,10 @@ public interface PSortedSet<E> extends PSet<E>, NavigableSet<E> {
    *     (optional)
    */
   @Override
-  public PSortedSet<E> minusAll(Collection<?> list);
+  public PSortedSet<E> minusAll(@Immutable Collection<?> list);
 
   @Override
-  default PSortedSet<E> intersect(Collection<? extends E> list) {
+  default PSortedSet<E> intersect(@Immutable Collection<? extends E> list) {
     return this.minusAll(this.minusAll(list));
   }
 
@@ -149,7 +151,7 @@ public interface PSortedSet<E> extends PSet<E>, NavigableSet<E> {
    *     (optional)
    */
   @Override
-  public PSortedSet<E> plusAll(Collection<? extends E> list);
+  public PSortedSet<E> plusAll(@Immutable Collection<? extends E> list);
 
   @Override
   public PSortedSet<E> subSet(E fromElement, E toElement);

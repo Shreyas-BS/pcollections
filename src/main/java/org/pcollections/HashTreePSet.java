@@ -17,11 +17,12 @@ import java.util.Collection;
  *
  * @author harold
  */
+@Immutable
 public final class HashTreePSet {
   // not instantiable (or subclassable):
   private HashTreePSet() {}
 
-  private static final MapPSet<@Immutable Object> EMPTY = MapPSet.from(HashTreePMap.empty());
+  private static final @Immutable MapPSet<@Immutable Object> EMPTY = MapPSet.from(HashTreePMap.empty());
 
   /**
    * @param <E>
@@ -46,7 +47,7 @@ public final class HashTreePSet {
    * @param list
    * @return empty().plusAll(map)
    */
-  public static <E  extends @Immutable Object> MapPSet<E> from(final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPSet<E> from(final @Immutable Collection<? extends E> list) {
     return HashTreePSet.<E>empty().plusAll(list);
   }
 }

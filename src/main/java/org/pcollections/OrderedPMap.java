@@ -30,16 +30,17 @@ import java.util.Set;
  * @param <K>
  * @param <V>
  */
+@Immutable
 public class OrderedPMap<K extends @Immutable Object, V> extends AbstractUnmodifiableMap<K, V>
     implements PMap<K, V>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private static final OrderedPMap<@Immutable Object, Object> EMPTY =
+  private static final @Immutable OrderedPMap<@Immutable Object, Object> EMPTY =
       new OrderedPMap<@Immutable Object, Object>(Empty.map(), Empty.sortedMap());
 
   @SuppressWarnings("unchecked")
-  public static <K extends @Immutable Object, V> OrderedPMap<K, V> empty() {
+  public static <K extends @Immutable Object, V> @Immutable OrderedPMap<K, V> empty() {
     return (OrderedPMap<K, V>) EMPTY;
   }
 
@@ -53,10 +54,10 @@ public class OrderedPMap<K extends @Immutable Object, V> extends AbstractUnmodif
     return OrderedPMap.<K, V>empty().plus(k, v);
   }
 
-  private final PMap<K, Long> ids;
-  private final PSortedMap<Long, Entry<K, V>> entries;
+  private final @Immutable PMap<K, Long> ids;
+  private final @Immutable PSortedMap<Long, Entry<K, V>> entries;
 
-  private OrderedPMap(final PMap<K, Long> ids, final PSortedMap<Long, Entry<K, V>> entries) {
+  private @Immutable OrderedPMap(final @Immutable PMap<K, Long> ids, final @Immutable PSortedMap<Long, Entry<K, V>> entries) {
     this.ids = ids;
     this.entries = entries;
   }
@@ -96,8 +97,8 @@ public class OrderedPMap<K extends @Immutable Object, V> extends AbstractUnmodif
   }
 
   @Override
-  public OrderedPMap<K, V> minusAll(final @Readonly Collection<?> keys) {
-    OrderedPMap<K, V> m = this;
+  public @Immutable OrderedPMap<K, V> minusAll(final @Readonly Collection<?> keys) {
+    @Immutable OrderedPMap<K, V> m = this;
     for (final Object k : keys) {
       m = m.minus(k);
     }
@@ -105,7 +106,7 @@ public class OrderedPMap<K extends @Immutable Object, V> extends AbstractUnmodif
   }
 
   @Override
-  public Set<Entry<K, V>> entrySet() {
+  public @Immutable Set<Entry<K, V>> entrySet() {
     return new AbstractUnmodifiableSet<Entry<K, V>>() {
       @Override
       public boolean contains(final @Readonly Object o) {

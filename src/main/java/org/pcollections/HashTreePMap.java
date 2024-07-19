@@ -18,12 +18,13 @@ import java.util.Map.Entry;
  *
  * @author harold
  */
+@Immutable
 public final class HashTreePMap {
   // not instantiable (or subclassable):
   private HashTreePMap() {}
 
-  private static final HashPMap<@Immutable Object, Object> EMPTY =
-      HashPMap.empty(IntTreePMap.<PSequence<Entry<Object, Object>>>empty());
+  private static final @Immutable HashPMap<@Immutable Object, Object> EMPTY =
+      HashPMap.empty(IntTreePMap.<PSequence<Entry<@Immutable Object, Object>>>empty());
 
   /**
    * @param <K>
@@ -31,8 +32,8 @@ public final class HashTreePMap {
    * @return an empty map
    */
   @SuppressWarnings("unchecked")
-  public static <K extends @Immutable Object, V> HashPMap<K, V> empty() {
-    return (HashPMap<K, V>) EMPTY;
+  public static <K extends @Immutable Object, V> @Immutable HashPMap<K, V> empty() {
+    return ( HashPMap<K, V>) EMPTY;
   }
 
   /**

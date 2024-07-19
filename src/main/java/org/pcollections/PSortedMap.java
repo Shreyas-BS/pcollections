@@ -78,6 +78,7 @@ import java.util.NoSuchElementException;
  * @see org.pcollections.PSortedSet
  * @see org.pcollections.TreePMap
  */
+@Immutable
 public interface PSortedMap<K extends @Immutable Object, V> extends PMap<K, V>, NavigableMap<K, V> {
   // methods inherited from PMap, overridden to return specifically PSortedMap:
 
@@ -132,7 +133,7 @@ public interface PSortedMap<K extends @Immutable Object, V> extends PMap<K, V>, 
    * @return The comparator used to order the keys in this map. (Never null.)
    */
   @Override
-  public Comparator<? super K> comparator();
+  public @Immutable Comparator<? super K> comparator();
 
   /**
    * @return This map, minus its first mapping (the mapping with the least/lowest key).

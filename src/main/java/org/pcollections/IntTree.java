@@ -6,6 +6,9 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+import qual.ReceiverDependentMutable;
+
 import java.io.Serializable;
 import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Iterator;
@@ -33,12 +36,13 @@ import java.util.NoSuchElementException;
  * @author harold
  * @param <V>
  */
+@Immutable
 class IntTree<V> implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
   // marker value:
-  static final IntTree<Object> EMPTYNODE = new IntTree<Object>();
+  static final @Immutable IntTree<Object> EMPTYNODE = new IntTree<Object>();
 
   private final long key; // we use longs so relative keys can express all ints
   // (e.g. if this has key -10 and right has 'absolute' key MAXINT,
@@ -72,8 +76,8 @@ class IntTree<V> implements Serializable {
     return new IntTree<V>(newKey, value, left, right);
   }
 
-  Iterator<Entry<Integer, V>> iterator() {
-    return new EntryIterator<V>(this);
+  @Immutable Iterator<Entry<Integer, V>> iterator() {
+    return new @Immutable EntryIterator<V>(this);
   }
 
   int size() {
@@ -250,7 +254,8 @@ class IntTree<V> implements Serializable {
     private PStack<IntTree<V>> stack = ConsPStack.empty(); // path of nonempty nodes
     private int key = 0; // note we use _int_ here since this is a truly absolute key
 
-    EntryIterator(final IntTree<V> root) {
+    @ReceiverDependentMutable
+    EntryIterator(final @Immutable IntTree<V> root) {
       gotoMinOf(root);
     }
 
@@ -290,7 +295,7 @@ class IntTree<V> implements Serializable {
     }
 
     // extend the stack to its least non-empty node:
-    private void gotoMinOf(IntTree<V> node) {
+    private void gotoMinOf(@Immutable IntTree<V> node) {
       while (node.size > 0) {
         stack = stack.plus(node);
         key += node.key;

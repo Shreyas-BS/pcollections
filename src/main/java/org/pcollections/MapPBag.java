@@ -24,6 +24,7 @@ import java.util.Map.Entry;
  * @author harold
  * @param <E>
  */
+@Immutable
 public final class MapPBag<E extends @Immutable Object> extends AbstractUnmodifiableCollection<E>
     implements PBag<E>, Serializable {
 
@@ -40,7 +41,7 @@ public final class MapPBag<E extends @Immutable Object> extends AbstractUnmodifi
   }
 
   //// PRIVATE CONSTRUCTORS ////
-  private final PMap<E, Integer> map;
+  private final @Immutable PMap<E, Integer> map;
   private final int size;
 
   // not instantiable (or subclassable):
@@ -56,9 +57,9 @@ public final class MapPBag<E extends @Immutable Object> extends AbstractUnmodifi
   }
 
   @Override
-  public Iterator<E> iterator() {
-    final Iterator<Entry<E, Integer>> i = map.entrySet().iterator();
-    return new Iterator<E>() {
+  public @Immutable Iterator<E> iterator() {
+    final @Immutable Iterator<Entry<E, Integer>> i = map.entrySet().iterator();
+    return new @Immutable Iterator<E>() {
       private E e;
       private int n = 0;
 
@@ -97,11 +98,11 @@ public final class MapPBag<E extends @Immutable Object> extends AbstractUnmodifi
 
   @SuppressWarnings("unchecked")
   @Override
-  public boolean equals(Object that) {
+  public boolean equals(@Immutable Object that) {
     if (!(that instanceof PBag)) return false;
     if (!(that instanceof MapPBag)) {
       // make that into a MapPBag:
-      MapPBag<@Immutable Object> empty = (@Mutable MapPBag< @Immutable Object>) this.minusAll(this);
+      MapPBag<@Immutable Object> empty = (MapPBag< @Immutable Object>) this.minusAll(this);
       that = empty.plusAll((PBag<? extends @Immutable Object>) that);
     }
     return this.map.equals(((MapPBag<?>) that).map);
@@ -122,7 +123,7 @@ public final class MapPBag<E extends @Immutable Object> extends AbstractUnmodifi
     return new MapPBag<E>(map.plus((E) e, n - 1), size - 1);
   }
 
-  public MapPBag<E> plusAll(final Collection<? extends E> list) {
+  public MapPBag<E> plusAll(final @Immutable Collection<? extends E> list) {
     MapPBag<E> bag = this;
     for (E e : list) bag = bag.plus(e);
     return bag;

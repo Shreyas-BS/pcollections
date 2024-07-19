@@ -6,6 +6,8 @@
 
 package org.pcollections;
 
+import qual.Immutable;
+
 import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.function.Predicate;
@@ -14,6 +16,7 @@ import java.util.function.Predicate;
  * A subclass of AbstractCollection that overrides the various mutator methods to mark them as
  * deprecated and unconditionally throw UnsupportedOperationException.
  */
+@Immutable
 public abstract class AbstractUnmodifiableCollection<E> extends AbstractCollection<E> {
 
   /**

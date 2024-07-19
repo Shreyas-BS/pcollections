@@ -16,6 +16,7 @@ import java.util.Collection;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PCollection<E> extends Collection<E> {
 
   /**
@@ -28,7 +29,7 @@ public interface PCollection<E> extends Collection<E> {
    * @param list
    * @return a collection which contains all of the elements of list and this
    */
-  public PCollection<E> plusAll(Collection<? extends E> list);
+  public PCollection<E> plusAll(@Immutable Collection<? extends E> list);
 
   /**
    * @param e
@@ -40,7 +41,7 @@ public interface PCollection<E> extends Collection<E> {
    * @param list
    * @return this with all elements of list completely removed
    */
-  public PCollection<E> minusAll(Collection<?> list);
+  public PCollection<E> minusAll(@Immutable Collection<?> list);
 
   @Deprecated
   boolean add(E o);

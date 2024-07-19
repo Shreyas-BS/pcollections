@@ -17,12 +17,13 @@ import java.util.NoSuchElementException;
  * @author mtklein
  * @param <E>
  */
+@Immutable
 public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
     implements PQueue<E>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private static final AmortizedPQueue<Object> EMPTY = new AmortizedPQueue<Object>();
+  private static final @Immutable AmortizedPQueue<Object> EMPTY = new AmortizedPQueue<Object>();
 
   @SuppressWarnings("unchecked")
   public static <E> AmortizedPQueue<E> empty() {
@@ -30,7 +31,7 @@ public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
   }
 
   private final PStack<E> front;
-  private final PStack<E> back;
+  private final @Immutable PStack<E> back;
 
   private AmortizedPQueue() {
     front = Empty.<E>stack();
@@ -57,8 +58,8 @@ public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
 
   /* Worst-case O(n) */
   @Override
-  public Iterator<E> iterator() {
-    return new Iterator<E>() {
+  public @Immutable Iterator<E> iterator() {
+    return new @Immutable Iterator<E>() {
       private PQueue<E> queue = AmortizedPQueue.this;
 
       public boolean hasNext() {
@@ -91,7 +92,7 @@ public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
   }
 
   /* Amortized O(1), worst-case O(n) */
-  public AmortizedPQueue<E> minus() {
+  public @Immutable AmortizedPQueue<E> minus() {
     if (size() == 0) {
       return this;
     }
@@ -114,12 +115,12 @@ public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
   }
 
   /* Worst-case O(1) */
-  public AmortizedPQueue<E> plus(E e) {
+  public @Immutable AmortizedPQueue<E> plus(E e) {
     return new AmortizedPQueue<E>(this, e);
   }
 
   /* Worst-case O(k) */
-  public AmortizedPQueue<E> plusAll(Collection<? extends E> list) {
+  public AmortizedPQueue<E> plusAll(@Immutable Collection<? extends E> list) {
     AmortizedPQueue<E> result = this;
     for (E e : list) {
       result = result.plus(e);
@@ -132,7 +133,7 @@ public class AmortizedPQueue<E> extends AbstractUnmodifiableQueue<E>
     return Empty.<E>vector().plusAll(this).minus(e);
   }
 
-  public PCollection<E> minusAll(Collection<?> list) {
+  public PCollection<E> minusAll(@Immutable Collection<?> list) {
     return Empty.<E>vector().plusAll(this).minusAll(list);
   }
 }

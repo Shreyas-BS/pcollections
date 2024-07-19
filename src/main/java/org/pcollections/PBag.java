@@ -16,16 +16,17 @@ import java.util.Collection;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PBag<E> extends PCollection<E> {
   // @Override
   public PBag<E> plus(E e);
 
   // @Override
-  public PBag<E> plusAll(Collection<? extends E> list);
+  public PBag<E> plusAll(@Immutable Collection<? extends E> list);
 
   // @Override
   public PBag<E> minus(Object e);
 
   // @Override
-  public PBag<E> minusAll(Collection<?> list);
+  public PBag<E> minusAll(@Immutable Collection<?> list);
 }

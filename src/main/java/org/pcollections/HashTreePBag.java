@@ -17,11 +17,12 @@ import java.util.Collection;
  *
  * @author harold
  */
+@Immutable
 public final class HashTreePBag {
   // not instantiable (or subclassable):
   private HashTreePBag() {}
 
-  private static final MapPBag<@Immutable Object> EMPTY = MapPBag.empty(HashTreePMap.<@Immutable Object, Integer>empty());
+  private static final @Immutable MapPBag<@Immutable Object> EMPTY = MapPBag.empty(HashTreePMap.<@Immutable Object, Integer>empty());
 
   /**
    * @param <E>
@@ -46,7 +47,7 @@ public final class HashTreePBag {
    * @param list
    * @return empty().plusAll(map)
    */
-  public static <E  extends @Immutable Object> MapPBag<E> from(final Collection<? extends E> list) {
+  public static <E  extends @Immutable Object> MapPBag<E> from(final @Immutable Collection<? extends E> list) {
     return HashTreePBag.<E>empty().plusAll(list);
   }
 }

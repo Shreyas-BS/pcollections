@@ -6,6 +6,7 @@
 
 package org.pcollections;
 
+import qual.Immutable;
 import qual.Readonly;
 
 import static java.util.Objects.requireNonNull;
@@ -38,13 +39,14 @@ import java.util.Set;
  * @author harold
  * @param <V>
  */
+@Immutable
 public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
     implements PMap<Integer, V>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
   //// STATIC FACTORY METHODS ////
-  private static final IntTreePMap<Object> EMPTY = new IntTreePMap<Object>(IntTree.EMPTYNODE);
+  private static final @Immutable IntTreePMap<Object> EMPTY = new IntTreePMap<Object>(IntTree.EMPTYNODE);
 
   /**
    * @param <V>
@@ -52,7 +54,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
    */
   @SuppressWarnings("unchecked")
   public static <V> IntTreePMap<V> empty() {
-    return (IntTreePMap<V>) EMPTY;
+      return (IntTreePMap<V>) EMPTY;
   }
 
   /**
@@ -80,7 +82,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
   }
 
   //// PRIVATE CONSTRUCTORS ////
-  private final IntTree<V> root;
+  private final @Immutable IntTree<V> root;
 
   // not externally instantiable (or subclassable):
   private IntTreePMap(final IntTree<V> root) {
@@ -116,13 +118,13 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
 
   //// REQUIRED METHODS FROM AbstractMap ////
   // this cache variable is thread-safe, since assignment in Java is atomic:
-  private transient Set<Entry<Integer, V>> entrySet = null;
+  private transient @Immutable Set<Entry<Integer, V>> entrySet = null;
 
   @Override
-  public Set<Entry<Integer, V>> entrySet() {
+  public @Immutable Set<Entry<Integer, V>> entrySet() {
     if (entrySet == null)
       entrySet =
-          new AbstractSet<Entry<Integer, V>>() {
+          new @Immutable AbstractSet<Entry<Integer, V>>() {
             // REQUIRED METHODS OF AbstractSet //
             @Override
             public int size() { // same as Map
@@ -130,7 +132,7 @@ public final class IntTreePMap<V> extends AbstractUnmodifiableMap<Integer, V>
             }
 
             @Override
-            public Iterator<Entry<Integer, V>> iterator() {
+            public @Immutable Iterator<Entry<Integer, V>> iterator() {
               return root.iterator();
             }
 

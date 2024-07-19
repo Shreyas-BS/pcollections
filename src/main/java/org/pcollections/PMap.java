@@ -22,6 +22,7 @@ import java.util.Map;
  * @param <K>
  * @param <V>
  */
+@Immutable
 public interface PMap<K extends @Immutable Object, V> extends Map<@Immutable K, V> {
   /**
    * @param key

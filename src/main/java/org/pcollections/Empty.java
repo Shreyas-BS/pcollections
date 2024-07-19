@@ -61,7 +61,7 @@ public final class Empty {
     return TreePSet.empty();
   }
 
-  public static <E> PSortedSet<E> sortedSet(final Comparator<? super E> comparator) {
+  public static <E> PSortedSet<E> sortedSet(final @Immutable Comparator<? super E> comparator) {
     return TreePSet.empty(comparator);
   }
 
@@ -69,7 +69,7 @@ public final class Empty {
     return TreePMap.empty();
   }
 
-  public static <K extends @Immutable Object, V> PSortedMap<K, V> sortedMap(final Comparator<? super K> comparator) {
+  public static <K extends @Immutable Object, V> PSortedMap<K, V> sortedMap(final @Immutable Comparator<? super K> comparator) {
     return TreePMap.empty(comparator);
   }
 }

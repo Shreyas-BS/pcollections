@@ -30,13 +30,14 @@ import java.util.Objects;
  * @author harold
  * @param <E>
  */
+@Immutable
 public class TreePVector<E> extends AbstractUnmodifiableList<E>
     implements PVector<E>, Serializable {
 
   private static final long serialVersionUID = 1L;
 
   //// STATIC FACTORY METHODS ////
-  private static final TreePVector<Object> EMPTY = new TreePVector<Object>(IntTreePMap.empty());
+  private static final @Immutable TreePVector<Object> EMPTY = new TreePVector<Object>(IntTreePMap.empty());
 
   /**
    * @param <E>
@@ -62,7 +63,7 @@ public class TreePVector<E> extends AbstractUnmodifiableList<E>
    * @return empty().plusAll(list)
    */
   @SuppressWarnings("unchecked")
-  public static <E> TreePVector<E> from(final Collection<? extends E> list) {
+  public static <E> TreePVector<E> from(final @Immutable Collection<? extends E> list) {
     if (list instanceof TreePVector)
       return (TreePVector<E>) list; // (actually we only know it's TreePVector<? extends E>)
     // but that's good enough for an immutable
@@ -91,7 +92,7 @@ public class TreePVector<E> extends AbstractUnmodifiableList<E>
 
   //// OVERRIDDEN METHODS FROM AbstractList ////
   @Override
-  public Iterator<E> iterator() {
+  public @Immutable Iterator<E> iterator() {
     return map.values().iterator();
   }
 
@@ -128,19 +129,19 @@ public class TreePVector<E> extends AbstractUnmodifiableList<E>
     return new TreePVector<E>(map.minus(i).withKeysChangedAbove(i, -1));
   }
 
-  public TreePVector<E> plusAll(final Collection<? extends E> list) {
+  public TreePVector<E> plusAll(final @Immutable Collection<? extends E> list) {
     TreePVector<E> result = this;
     for (E e : list) result = result.plus(e);
     return result;
   }
 
-  public TreePVector<E> minusAll(final Collection<?> list) {
+  public TreePVector<E> minusAll(final @Immutable Collection<?> list) {
     TreePVector<E> result = this;
     for (Object e : list) result = result.minus(e);
     return result;
   }
 
-  public TreePVector<E> plusAll(int i, final Collection<? extends E> list) {
+  public TreePVector<E> plusAll(int i, final @Immutable Collection<? extends E> list) {
     if (i < 0 || i > size()) throw new IndexOutOfBoundsException();
     if (list.size() == 0) return this;
     IntTreePMap<E> map = this.map.withKeysChangedAbove(i, list.size());

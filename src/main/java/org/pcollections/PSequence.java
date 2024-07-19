@@ -17,13 +17,14 @@ import java.util.List;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PSequence<E> extends PCollection<E>, List<E> {
 
   // @Override
   public PSequence<E> plus(E e);
 
   // @Override
-  public PSequence<E> plusAll(Collection<? extends E> list);
+  public PSequence<E> plusAll(@Immutable Collection<? extends E> list);
 
   /**
    * @param i
@@ -47,14 +48,14 @@ public interface PSequence<E> extends PCollection<E>, List<E> {
    * @return a sequence consisting of the elements of this with list inserted at index i.
    * @throws IndexOutOfBOundsException if i&lt;0 || i&gt;this.size()
    */
-  public PSequence<E> plusAll(int i, Collection<? extends E> list);
+  public PSequence<E> plusAll(int i, @Immutable Collection<? extends E> list);
 
   /** Returns a sequence consisting of the elements of this without the first occurrence of e. */
   // @Override
   public PSequence<E> minus(Object e);
 
   // @Override
-  public PSequence<E> minusAll(Collection<?> list);
+  public PSequence<E> minusAll(@Immutable Collection<?> list);
 
   /**
    * @param i

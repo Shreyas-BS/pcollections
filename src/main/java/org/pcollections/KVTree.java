@@ -6,6 +6,7 @@
 
 package org.pcollections;
 
+import qual.Immutable;
 import qual.Readonly;
 
 import java.io.Serializable;
@@ -48,6 +49,7 @@ import java.util.Objects;
  * it made for much simpler implementations of 'minus' and 'range*', and because it enabled
  * the constructor to explicitly verify that the balance condition is always maintained.
  */
+@Immutable
 final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -60,7 +62,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   }
 
   /** The empty tree / leaf node. Access via {@link #empty()}. */
-  private static final KVTree<?, ?> EMPTY = new KVTree<Void, Void>();
+  private static @Immutable final KVTree<?, ?> EMPTY = new @Immutable KVTree<Void, Void>();
 
   /**
    * The height of this tree: 0 if this tree is empty, otherwise 1 + max(left.height, right.height).
@@ -309,7 +311,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
     return this == EMPTY;
   }
 
-  KVTree<K, V> minus(final K key, final Comparator<? super K> comparator) {
+  KVTree<K, V> minus(final K key, final @Immutable Comparator<? super K> comparator) {
     if (this.isEmpty()) {
       return this;
     }
@@ -355,7 +357,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
     return this == EMPTY ? null : this;
   }
 
-  KVTree<K, V> plus(final K key, final V value, final Comparator<? super K> comparator) {
+  KVTree<K, V> plus(final K key, final V value, final @Immutable Comparator<? super K> comparator) {
     if (this.isEmpty()) {
       return KVTree.join(KVTree.empty(), key, value, KVTree.empty());
     }
@@ -379,7 +381,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
       final boolean isLeftBoundInclusive,
       final K rightBound,
       final boolean isRightBoundInclusive,
-      final Comparator<? super K> comparator) {
+      final @Immutable Comparator<? super K> comparator) {
     if (this.isEmpty()) {
       return this;
     }
@@ -435,7 +437,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   KVTree<K, V> rangeToLeft(
       final K rightBound,
       final boolean isRightBoundInclusive,
-      final Comparator<? super K> comparator) {
+      final @Immutable Comparator<? super K> comparator) {
     if (this.isEmpty()) {
       return this;
     }
@@ -458,7 +460,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   KVTree<K, V> rangeToRight(
       final K leftBound,
       final boolean isleftBoundInclusive,
-      final Comparator<? super K> comparator) {
+      final @Immutable Comparator<? super K> comparator) {
     if (this.isEmpty()) {
       return this;
     }
@@ -478,7 +480,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
   }
 
   KVTree<K, V> search(
-      final K key, final Comparator<? super K> comparator, final SearchType searchType) {
+      final K key, final @Immutable Comparator<? super K> comparator, final SearchType searchType) {
     KVTree<K, V> currNode = this;
     KVTree<K, V> candidate = KVTree.empty();
     while (true) {
@@ -545,7 +547,7 @@ final class KVTree<K, V> implements Map.Entry<K, V>, Serializable {
     return this.key + "=" + this.value;
   }
 
-  private Object readResolve() {
+  private @Immutable Object readResolve() {
     if (size == 0) {
       return EMPTY;
     }

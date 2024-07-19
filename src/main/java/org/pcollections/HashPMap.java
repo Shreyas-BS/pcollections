@@ -8,6 +8,7 @@ package org.pcollections;
 
 import qual.Immutable;
 import qual.Readonly;
+import qual.ReceiverDependentMutable;
 
 import java.io.Serializable;
 import java.util.AbstractSet;
@@ -31,6 +32,7 @@ import java.util.Set;
  * @param <K>
  * @param <V>
  */
+@Immutable
 public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmodifiableMap<K, V>
     implements PMap<K, V>, Serializable {
 
@@ -44,7 +46,7 @@ public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmo
    * @return a map backed by an empty version of intMap, i.e. backed by
    *     intMap.minusAll(intMap.keySet())
    */
-  public static <K extends @Immutable Object, V> HashPMap<K, V> empty(final PMap<Integer, PSequence<Entry<K, V>>> intMap) {
+  public static <K extends @Immutable Object, V> HashPMap<K, V> empty(final @Immutable PMap<Integer, PSequence<Entry<@Immutable K, V>>> intMap) {
     return new HashPMap<K, V>(intMap.minusAll(intMap.keySet()), 0);
   }
 
@@ -63,10 +65,10 @@ public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmo
   private transient Set<Entry<K, V>> entrySet = null;
 
   @Override
-  public Set<Entry<K, V>> entrySet() {
+  public @Immutable Set<Entry<K, V>> entrySet() {
     if (entrySet == null)
       entrySet =
-          new AbstractSet<Entry<K, V>>() {
+          new @Immutable AbstractSet<Entry<K, V>>() {
             // REQUIRED METHODS OF AbstractSet //
             @Override
             public int size() {
@@ -74,8 +76,8 @@ public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmo
             }
 
             @Override
-            public Iterator<Entry<K, V>> iterator() {
-              return new SequenceIterator<Entry<K, V>>(intMap.values().iterator());
+            public @Immutable Iterator<Entry<K, V>> iterator() {
+              return new @Immutable SequenceIterator<Entry<K, V>>(intMap.values().iterator());
             }
 
             // OVERRIDDEN METHODS OF AbstractSet //
@@ -162,11 +164,13 @@ public final class HashPMap<K extends @Immutable Object, V> extends AbstractUnmo
     return -1;
   }
 
+  @ReceiverDependentMutable
   static class SequenceIterator<E> implements Iterator<E> {
     private final Iterator<PSequence<E>> i;
     private PSequence<E> seq = ConsPStack.empty();
 
-    SequenceIterator(Iterator<PSequence<E>> i) {
+    @ReceiverDependentMutable
+    SequenceIterator(@ReceiverDependentMutable Iterator<PSequence<E>> i) {
       this.i = i;
     }
 

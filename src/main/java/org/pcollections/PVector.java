@@ -16,6 +16,7 @@ import java.util.Collection;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PVector<E> extends PSequence<E> {
 
   /** Returns a vector consisting of the elements of this with e appended. */
@@ -24,7 +25,7 @@ public interface PVector<E> extends PSequence<E> {
 
   /** Returns a vector consisting of the elements of this with list appended. */
   // @Override
-  public PVector<E> plusAll(Collection<? extends E> list);
+  public PVector<E> plusAll(@Immutable Collection<? extends E> list);
 
   // @Override
   public PVector<E> with(int i, E e);
@@ -33,13 +34,13 @@ public interface PVector<E> extends PSequence<E> {
   public PVector<E> plus(int i, E e);
 
   // @Override
-  public PVector<E> plusAll(int i, Collection<? extends E> list);
+  public PVector<E> plusAll(int i, @Immutable Collection<? extends E> list);
 
   // @Override
   public PVector<E> minus(Object e);
 
   // @Override
-  public PVector<E> minusAll(Collection<?> list);
+  public PVector<E> minusAll(@Immutable Collection<?> list);
 
   // @Override
   public PVector<E> minus(int i);

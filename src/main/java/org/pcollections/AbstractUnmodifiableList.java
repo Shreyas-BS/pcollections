@@ -6,6 +6,7 @@
 
 package org.pcollections;
 
+import qual.Immutable;
 import qual.Readonly;
 
 import java.util.AbstractList;
@@ -18,6 +19,7 @@ import java.util.function.UnaryOperator;
  * A subclass of AbstractList that overrides the various mutator methods to mark them as deprecated
  * and unconditionally throw UnsupportedOperationException.
  */
+@Immutable
 public abstract class AbstractUnmodifiableList<E> extends AbstractList<E> {
 
   /**

@@ -17,23 +17,24 @@ import java.util.Set;
  * @author harold
  * @param <E>
  */
+@Immutable
 public interface PSet<E> extends PCollection<E>, Set<E> {
   // @Override
   public PSet<E> plus(E e);
 
   // @Override
-  public PSet<E> plusAll(Collection<? extends E> list);
+  public PSet<E> plusAll(@Immutable Collection<? extends E> list);
 
   // @Override
   public PSet<E> minus(Object e);
 
   // @Override
-  public PSet<E> minusAll(Collection<?> list);
+  public PSet<E> minusAll(@Immutable Collection<?> list);
 
   /**
    * @return the equivalent of <code>this.minusAll(this.minusAll(list))</code>.
    */
-  public default PSet<E> intersect(Collection<? extends E> list) {
+  public default PSet<E> intersect(@Immutable Collection<? extends E> list) {
     return this.minusAll(this.minusAll(list));
   }
 }
